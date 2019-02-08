@@ -1,0 +1,20 @@
+name: mynuxt
+proxy:
+  appserver:
+    - tstnuxt.lndo.site
+services:
+  appserver:
+    type: node:10
+    command: "yarn dev --hostname 0.0.0.0 --port 80"
+    install_dependencies_as_me:
+      - yarn install
+tooling:
+  yarn:
+    service: appserver
+  npm:
+    service: appserver
+  node:
+    service: appserver
+  nuxt:
+    cmd: /app/node_modules/.bin/nuxt
+    service: appserver
